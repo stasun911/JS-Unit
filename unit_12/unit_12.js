@@ -260,7 +260,8 @@ function f13() {
 
         out.push(t);
     }
-    console.log(out);
+    a13 = out;
+    console.log(a13);
 
 }
 
