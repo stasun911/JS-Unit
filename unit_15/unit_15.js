@@ -2,7 +2,7 @@
 // Создайте set s1. Добавьте в него три элемента 'h', 'b', 'o', 'h'. Добавление делайте через add. Выведите в консоль.
 
 let s1 = new Set();
-s1.add('h');
+s1.add[('h')];
 s1.add('b');
 s1.add('o');
 s1.add('h');
@@ -130,7 +130,9 @@ document.querySelector('.b-8').onclick = () => {
 
 function f9(our_set) {
 
-    // return ///
+    let arr = Array.from(our_set);
+
+    return arr.join(' ');
 }
 
 document.querySelector('.b-9').onclick = () => {
@@ -142,7 +144,12 @@ document.querySelector('.b-9').onclick = () => {
 // При нажатии b-10 выполняете функцию f10. Функция должна принимать набор set в качестве параметра и выводить его в указанный элемент. Элемент указывается как второй параметр функции f10. Вывод значений - через пробел.
 
 function f10(out_set, elem) {
+    let out = '';
 
+    for (let item of out_set) {
+        out += item + ' ';
+    }
+    document.querySelector(elem).textContent = out;
 }
 
 document.querySelector('.b-10').onclick = () => {
@@ -157,6 +164,8 @@ document.querySelector('.b-10').onclick = () => {
 let a11 = [[1], [1]];
 
 function f11() {
+    let s11 = new Set(a11);
+    console.log(s11);
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -168,6 +177,9 @@ let str12 = 'The name conjures up visions of plum pudding and Christmas punch qu
 
 function f12() {
 
+    let s12 = Array.from(str12);
+    let arr = new Set(s12);
+    return s12;
 }
 
 document.querySelector('.b-12').onclick = () => {
@@ -177,12 +189,32 @@ document.querySelector('.b-12').onclick = () => {
 // Task 13
 //  При нажатии b-13 выполняете функцию f13. Функция должна преобразовать строку str13 в массив, причем каждая буква - отдельный элемент массива. Потом создать набор на основе массива. Затем, перебирая набор поэлементам, найти сколько раз каждый символ встречается в исходном массиве. Результат - в виде массива типа { символ : количество, символ : количество } вернуть в функции.
 
+// 1. Строку преобразовываем в массив. 
+// 2. Массив в набор. Это нам даст набор неповторяющихся элементов. 
+// 3. Теперь перебираем набор по элементам. Получаем символ.
+// 4. С помощью вложенного цикла считаем сколько раз данный символ встречается в нашем исходном массиве полученном в пункте 2.
+
+
 let str13 = 'The name conjures up visions of plum pudding and Christmas punch quaint coaching inns and cozy firesides but also of orphaned and starving children';
 
 
 function f13() {
+    let s13 = Array.from(str13);
+    let arr = new Set(s13);
+    let out = {};
 
-    // return
+    for (let item of arr) {
+        let count = 0;
+
+        for (let i = 0; i < s13.length; i++) {
+            if (s13[i] === item) {
+                count++;
+            }
+        }
+        out[item] = count;
+    }
+
+    return out;
 }
 
 document.querySelector('.b-13').onclick = () => {
