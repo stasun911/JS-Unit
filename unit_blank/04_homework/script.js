@@ -56,11 +56,10 @@ let cityList = [
     }
 ]
 
+let selectCity = document.querySelector('#city').value;
+let input = document.querySelector('.inputSity').value;
 
-function getWeather() {
-
-    let city = document.querySelector('#city');
-    let selectCity = city.value;
+function getWeather() { 
 
     fetch(`http://api.openweathermap.org/data/2.5/weather?id=${selectCity}&appid=14d67f93a50fe7d556154b3fc36dba07`)
         .then(function (resp) { return resp.json() })
@@ -73,16 +72,35 @@ function getWeather() {
             document.querySelector('.features li').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
             document.querySelector('.wind').innerHTML = `${data.wind.speed} m/s`;
 
-            for (let key in cityList) {
-                if (key == selectCity) {
-                    document.querySelector('.package-name').textContent = `${cityList[key]}`;
-                }
-            }
-
         })
         .catch(function () {
 
         });
 }
+getWeather()
 
-document.querySelector('#city').onchange = getWeather;
+document.querySelector('.select-city').onchange = () => {
+    
+    for (let key in cityList) {
+        if (key == selectCity) {
+            document.querySelector('.package-name').textContent = `${cityList[key]}`;
+        }
+    }
+    getWeather()
+}
+
+
+document.querySelector('.btn').onchange = () => {
+    
+    for (let key in cityList) {
+        if (cityList[key] == input) {
+            document.querySelector('.package-name').textContent = `${cityList[key]}`;
+        }
+    }
+    getWeather()
+}
+
+
+
+
+
