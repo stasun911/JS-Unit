@@ -1,24 +1,87 @@
-.container  {
-    width: 100%;
+.container {
+  width: 100%;
 }
 
 section {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #444;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #444;
 }
 
 .block {
-    width: 75px;
-    height: 75px;
-    margin: 25px;
-    border: 2px solid #333;
+  width: 75px;
+  height: 75px;
+  margin: 25px;
+  border: 2px solid #333;
 }
 
 .active {
-    background: orange;
+  background: orange;
 }
 
 .hide {
-    display: none;
+  display: none;
+}
+
+.keyboard {
+  border: 2px solid #695151;
+  width: max-content;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: black;
+}
+
+.line {
+  display: flex;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+  font-weight: 500;
+}
+
+.bigKey {
+  width: 125px;
+}
+
+.specialKey {
+  width: 92px;
+}
+
+.shift {
+  width: 150px;
+}
+
+.capslock {
+  width: 100px;
+}
+
+.space {
+  width: 400px;
+}
+
+.enter {
+  width: 138px;
+}
+
+.tab {
+  width: 80px;
+}
+
+.slash {
+  width: 95px;
+}
+
+.activeBtn {
+    background-color:#cbe4ff;
 }
