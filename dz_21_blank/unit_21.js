@@ -126,7 +126,7 @@ document.querySelector('.div-10').ontouchmove = t10;
 /*  Дан блок div-11. Добавьте на него событие touch. При срабатывании выводите радиус события radiusX, radiusY. */
 
 function t11() {
-document.querySelector('.out-11').textContent = event.touches[0].radiusX + ' ' + event.touches[0].radiusY;
+    document.querySelector('.out-11').textContent = event.touches[0].radiusX + ' ' + event.touches[0].radiusY;
 }
 
 // ваше событие здесь!!!
@@ -145,21 +145,46 @@ document.querySelector('.div-11').ontouchstart = t11;
 */
 
 const images = document.querySelectorAll('.img-12-min');
+let imgMax = document.querySelector('.img-12-max');
+
+const reset = document.querySelectorAll('.reset');
+const next = document.querySelectorAll('.next');
+const prev = document.querySelectorAll('.prev');
+
 let count = 0; // переменная, которая указывает на номер активного изображения в images
 
-const next = document.querySelectorAll('.next');
-next.onclick = nextFunction;
-
-const prev = document.querySelectorAll('.prev');
-prev.onclick = prevFunction;
 
 function nextFunction() {
+    images[count].classList.remove('active-img');
+    if (count == images.length - 1) count = 0;
+    else count++;
 
+    images[count].classList.add('active-img');
+    imgMax.src = images[count].src;
 }
 
 function prevFunction() {
+    images[count].classList.remove('active-img');
+    if (count - 1 == -1) count = 5;
+    else count--;
 
+    images[count].classList.add('active-img');
+    imgMax.src = images[count].src;
 }
 
+function resetFunction() {
+    images[count].classList.remove('active-img');
+    count = 0;
 
-// ваше событие здесь!!!
+    images[count].classList.add('active-img');
+    imgMax.src = "img/1.png";
+}
+
+next[0].onclick = nextFunction;
+next[0].ontouch = nextFunction;
+
+prev[0].onclick = prevFunction;
+prev[0].ontouch = prevFunction;
+
+reset[0].onclick = resetFunction;
+reset[0].ontouch = resetFunction;
